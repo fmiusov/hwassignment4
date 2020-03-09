@@ -20,14 +20,14 @@
       <span id="timer">Time: </span>
     </nav>
     <div class="container">
-      <div class="card text-center">
-        <h5 class="card-header">Question #</h5>
-        <div class="card-body">
-          <h5 class="card-title">Question Content</h5>
-          <a href="#" class="btn btn-primary">Choice 1</a>
-          <a href="#" class="btn btn-primary">Choice 2</a>
-          <a href="#" class="btn btn-primary">Choice 3</a>
-          <a href="#" class="btn btn-primary">Choice 4</a>
+      <div class="card mx-auto text-center" class="hide">
+        <h5 id="questionTitle" class="card-header">Question:</h5>
+        <div id ="choices" class="card-body">
+          <h5 id="questionContent" class="card-title">Question Content</h5>
+          <button class="btn btn-primary">Choice 1</button>
+          <button class="btn btn-primary">Choice 2</button>
+          <button class="btn btn-primary">Choice 3</button>
+          <button class="btn btn-primary">Choice 4</button>
         </div>
         <div class="card-footer text-muted">
           CORRECT!!!
@@ -36,6 +36,7 @@
             WRONG!!!
           </div>
       </div>
+      <button id="startBtn" class="starter btn btn-success btn-lg mx-auto">START QUIZ</button>
     </div>
 
     <script
