@@ -18,6 +18,7 @@ var ans4 = document.getElementById("choice4");
 var timeCount = document.getElementById("timer");
 var gameOverScreen = document.getElementById("game-over");
 var resetGame = document.getElementById("reset");
+var welcomeScreen = document.getElementById("welcome");
 
 //---BUTTON FUNCTIONALITY---//
 startBtn.addEventListener("click", startGame);
@@ -30,10 +31,11 @@ resetGame.addEventListener("click", startGame);
 
 //---GAME FUNCTIONS---//
 function startGame() {
-  startBtn.classList.add("collapse");
+  welcomeScreen.classList.add("collapse");
   questionBox.classList.remove("collapse");
   timeCount.classList.remove("collapse");
   gameOverScreen.classList.add("collapse");
+
   var timeLeft = 10;
 
   var timeInterval = setInterval(function() {
