@@ -23,10 +23,10 @@ var totalScore = document.getElementById("total-score");
 
 //---BUTTON FUNCTIONALITY---//
 startBtn.addEventListener("click", startGame);
-ans1.addEventListener("click", checkAnswer);
-ans2.addEventListener("click", checkAnswer);
-ans3.addEventListener("click", checkAnswer);
-ans4.addEventListener("click", checkAnswer);
+ans1.addEventListener("click", chose1());
+ans2.addEventListener("click", chose2());
+ans3.addEventListener("click", chose3());
+ans4.addEventListener("click", chose4());
 resetGame.addEventListener("click", startGame);
 a = "";
 b = "";
@@ -34,7 +34,6 @@ c = "";
 d = "";
 
 //---TIMER AND SCORING---//
-var timeLeft = 10;
 
 //---GAME FUNCTIONS---//
 function startGame() {
@@ -42,7 +41,7 @@ function startGame() {
   timeCount.classList.remove("collapse");
   gameOverScreen.classList.add("collapse");
 
-
+  window.timeLeft = 180;
   var timeInterval = setInterval(function() {
     timeCount.textContent = "Time: " + timeLeft + " seconds remaining";
     timeLeft--;
@@ -53,20 +52,19 @@ function startGame() {
       gameOver();
     }
   }, 1000);
-  chooseAnswer();
   question1();
 }
 
-function chooseAnswer() {
-  questionBox.classList.remove("collapse");
-  correctAnswer.classList.add("collapse");
-  wrongAnswer.classList.add("collapse");
+// function chooseAnswer() {
+//   questionBox.classList.remove("collapse");
+//   correctAnswer.classList.add("collapse");
+//   wrongAnswer.classList.add("collapse");
 
-  // ans1
-  // ans2
-  // ans3
-  // ans4
-}
+//   // ans1
+//   // ans2
+//   // ans3
+//   // ans4
+// }
 
 function checkAnswer() {
   if (true) {
@@ -86,6 +84,7 @@ function gameOver() {
 //---QUESTIONS---//
 
 function question1() {
+  questionBox.classList.remove("collapse");
   questionContent.textContent =
     "Which of these is not a keyword in Javascript?";
   ans1.textContent = "var";
@@ -93,12 +92,29 @@ function question1() {
   ans3.textContent = "for";
   ans4.textContent = "banana";
 
-  if (event.ans4) {
+  ans4.onclick = function() {
     correctAnswer.classList.remove("collapse");
-    chooseAnswer();
-  } else {
+    wrongAnswer.classList.add("collapse")
+  };
+  ans1.onclick = function() {
     wrongAnswer.classList.remove("collapse");
-    timeLeft - 10;
-    chooseAnswer();
-  }
+    timeLeft = timeLeft - 10;
+  };
+  ans2.onclick = function() {
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
+  ans3.onclick = function() {
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
 }
+
+// if ( {
+//   correctAnswer.classList.remove("collapse");
+//   // chooseAnswer();
+// } else if (chose1(true) || chose2(true) || chose3(true)) {
+//   wrongAnswer.classList.remove("collapse");
+//   var timeLeft = timeLeft - 10;
+//   // chooseAnswer();
+// }
