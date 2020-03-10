@@ -23,17 +23,11 @@ var totalScore = document.getElementById("total-score");
 
 //---BUTTON FUNCTIONALITY---//
 startBtn.addEventListener("click", startGame);
-ans1.addEventListener("click", chose1());
-ans2.addEventListener("click", chose2());
-ans3.addEventListener("click", chose3());
-ans4.addEventListener("click", chose4());
+ans1.addEventListener("click", function());
+ans2.addEventListener("click", function());
+ans3.addEventListener("click", function());
+ans4.addEventListener("click", function());
 resetGame.addEventListener("click", startGame);
-a = "";
-b = "";
-c = "";
-d = "";
-
-//---TIMER AND SCORING---//
 
 //---GAME FUNCTIONS---//
 function startGame() {
@@ -55,26 +49,6 @@ function startGame() {
   question1();
 }
 
-// function chooseAnswer() {
-//   questionBox.classList.remove("collapse");
-//   correctAnswer.classList.add("collapse");
-//   wrongAnswer.classList.add("collapse");
-
-//   // ans1
-//   // ans2
-//   // ans3
-//   // ans4
-// }
-
-function checkAnswer() {
-  if (true) {
-    correctAnswer.classList.remove("collapse");
-  } else {
-    wrongAnswer.classList.remove("collapse");
-    timeLeft = timeLeft - 10;
-  }
-}
-
 function gameOver() {
   questionBox.classList.add("collapse");
   gameOverScreen.classList.remove("collapse");
@@ -94,7 +68,8 @@ function question1() {
 
   ans4.onclick = function() {
     correctAnswer.classList.remove("collapse");
-    wrongAnswer.classList.add("collapse")
+    wrongAnswer.classList.add("collapse");
+    question2();
   };
   ans1.onclick = function() {
     wrongAnswer.classList.remove("collapse");
@@ -109,12 +84,3 @@ function question1() {
     timeLeft = timeLeft - 10;
   };
 }
-
-// if ( {
-//   correctAnswer.classList.remove("collapse");
-//   // chooseAnswer();
-// } else if (chose1(true) || chose2(true) || chose3(true)) {
-//   wrongAnswer.classList.remove("collapse");
-//   var timeLeft = timeLeft - 10;
-//   // chooseAnswer();
-// }
