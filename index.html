@@ -17,26 +17,31 @@
   <body>
     <nav class="navbar navbar-dark">
       <a class="navbar-brand" href="#">View Highscores</a>
-      <span id="timer">Time: </span>
+      <span id="timer" class="collapse">Time: </span>
     </nav>
     <div class="container">
       <div id = "question-box"class="card mx-auto text-center collapse">
         <h5 id="questionTitle" class="card-header">Question:</h5>
         <div id ="choices" class="card-body">
           <h5 id="questionContent" class="card-title">Question Content</h5>
-          <button class="btn btn-primary">Choice 1</button>
-          <button class="btn btn-primary">Choice 2</button>
-          <button class="btn btn-primary">Choice 3</button>
-          <button class="btn btn-primary">Choice 4</button>
+          <button id="choice1" class="btn btn-primary">Choice 1</button>
+          <button id="choice2" class="btn btn-primary">Choice 2</button>
+          <button id="choice3" class="btn btn-primary">Choice 3</button>
+          <button id="choice4" class="btn btn-primary">Choice 4</button>
         </div>
-        <div id="correct" class="card-footer text-muted">
+        <div id="correctAns" class="card-footer text-muted collapse">
           CORRECT!!!
         </div>
-        <div id="wrong" class="card-footer text-muted">
+        <div id="wrongAns" class="card-footer text-muted collapse">
             WRONG!!!
           </div>
       </div>
       <button id="startBtn" class="starter btn btn-success btn-lg mx-auto">START QUIZ</button>
+    </div>
+    <div id="game-over" class="card mx-auto text-center collapse">
+        <h5>TIMES UP!!!</h5>
+        <p>Thanks for playing :) Your score was a measely </p>
+        <button id="reset" class="btn btn-dark">Try Again</button>
     </div>
 
     <script
