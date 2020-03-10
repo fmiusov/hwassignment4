@@ -1,0 +1,18 @@
+.navbar {
+    background-color: rgb(30, 46, 65);
+}
+#timer {
+    color: wheat
+}
+.card {
+    width: 900px;
+    max-width: 75%;
+}
+.btn {
+    padding: 20px;
+    margin-bottom: 0.50rem;
+}
+.starter {
+    display: block;
+    width: 175px;
+}
