@@ -1,8 +1,8 @@
-//My javascript and html is loosely based on github user WebDevSimplified:
-//https://github.com/WebDevSimplified/JavaScript-Quiz-App/blob/master/script.js
-//My project differs in several ways from layout, timer, auto-next, etc. in
-//accordance with our homework requirements and example.
-//However, the order of variables and tags may be similar to the above referenced project.
+//Make highscore = time left
+//Questions stored in object, buttons in an array
+//Array of question objects
+//Run a formatter to make sure html is valid
+//Make sure README contains link to deployed application
 
 //---GLOBAL VARIABLES---//
 var startBtn = document.getElementById("startBtn");
