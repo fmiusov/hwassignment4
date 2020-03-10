@@ -42,8 +42,9 @@
           <h5 class="card-title">
             Welcome to one of many Javascript Quizes. The rules are simple:</h5>
             <ul class="text-left mb-10">
+                <li>Use the mouse to click the correct answer for each question</li>
                 <li>Answer as many questions correctly as you can before time runs out</li>
-                <li>100 points for every correct answer</li>
+                <li>Time left at completion = total score</li>
                 <li>10 seconds taken off the timer for every wrong answer</li>
                 <li>Try to beat your highscore on the journey to Javascript mastery!</li>
             </ul>
@@ -55,7 +56,7 @@
     </div>
     <div id="game-over" class="card mx-auto text-center collapse">
       <h5>TIMES UP!!!</h5>
-      <p>Thanks for playing :) Your score was a measely</p>
+      <p>Thanks for playing :) Your score was a measely<span id="total-score"></span></p>
       <button id="reset" class="btn btn-dark">Try Again</button>
     </div>
 
