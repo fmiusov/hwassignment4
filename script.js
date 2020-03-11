@@ -19,14 +19,14 @@ var timeCount = document.getElementById("timer");
 var gameOverScreen = document.getElementById("game-over");
 var resetGame = document.getElementById("reset");
 var welcomeScreen = document.getElementById("welcome");
-var totalScore = document.getElementById("total-score");
+var winScreen = document.getElementById("win-screen");
 
 //---BUTTON FUNCTIONALITY---//
 startBtn.addEventListener("click", startGame);
-ans1.addEventListener("click", function());
-ans2.addEventListener("click", function());
-ans3.addEventListener("click", function());
-ans4.addEventListener("click", function());
+ans1.addEventListener("click", function() {});
+ans2.addEventListener("click", function() {});
+ans3.addEventListener("click", function() {});
+ans4.addEventListener("click", function() {});
 resetGame.addEventListener("click", startGame);
 
 //---GAME FUNCTIONS---//
@@ -36,11 +36,11 @@ function startGame() {
   gameOverScreen.classList.add("collapse");
 
   window.timeLeft = 180;
-  var timeInterval = setInterval(function() {
+  window.timeInterval = setInterval(function() {
     timeCount.textContent = "Time: " + timeLeft + " seconds remaining";
     timeLeft--;
 
-    if (timeLeft === -1) {
+    if (timeLeft <= 0) {
       timeCount.textContent = "";
       clearInterval(timeInterval);
       gameOver();
@@ -52,12 +52,19 @@ function startGame() {
 function gameOver() {
   questionBox.classList.add("collapse");
   gameOverScreen.classList.remove("collapse");
-  totalScore.textContent = timeLeft + 1;
+}
+
+function winner() {
+  winScreen.classList.remove("collapse");
+  questionBox.classList.add("collapse");
+  clearInterval(timeInterval);
 }
 
 //---QUESTIONS---//
 
 function question1() {
+  wrongAnswer.classList.add("collapse"); // clearing board from previous session
+  correctAnswer.classList.add("collapse"); // clearing board from previous session
   questionBox.classList.remove("collapse");
   questionContent.textContent =
     "Which of these is not a keyword in Javascript?";
@@ -66,20 +73,113 @@ function question1() {
   ans3.textContent = "for";
   ans4.textContent = "banana";
 
+  ans1.onclick = function() {
+    correctAnswer.classList.add("collapse");
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
+  ans2.onclick = function() {
+    correctAnswer.classList.add("collapse");
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
+  ans3.onclick = function() {
+    correctAnswer.classList.add("collapse");
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
   ans4.onclick = function() {
     correctAnswer.classList.remove("collapse");
     wrongAnswer.classList.add("collapse");
     question2();
   };
+}
+
+function question2() {
+  questionContent.textContent =
+    "Which is the best tool for iterating over an array?";
+  ans1.textContent = "hammer";
+  ans2.textContent = "DOM targeting";
+  ans3.textContent = "for loop";
+  ans4.textContent = ".arrayOf()";
+
   ans1.onclick = function() {
+    correctAnswer.classList.add("collapse");
     wrongAnswer.classList.remove("collapse");
     timeLeft = timeLeft - 10;
   };
   ans2.onclick = function() {
+    correctAnswer.classList.add("collapse");
     wrongAnswer.classList.remove("collapse");
     timeLeft = timeLeft - 10;
   };
   ans3.onclick = function() {
+    correctAnswer.classList.remove("collapse");
+    wrongAnswer.classList.add("collapse");
+    question3();
+  };
+  ans4.onclick = function() {
+    correctAnswer.classList.add("collapse");
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
+}
+
+function question3() {
+  questionContent.textContent =
+    "Why can't I come up with more Javascript questions?";
+  ans1.textContent = "My code is distractingly verbose";
+  ans2.textContent = "I have no creativity for such quizzical matters";
+  ans3.textContent = "It is late in the evening";
+  ans4.textContent = "All of the above";
+
+  ans1.onclick = function() {
+    correctAnswer.classList.add("collapse");
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
+  ans2.onclick = function() {
+    correctAnswer.classList.add("collapse");
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
+  ans3.onclick = function() {
+    correctAnswer.classList.add("collapse");
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
+  ans4.onclick = function() {
+    correctAnswer.classList.remove("collapse");
+    wrongAnswer.classList.add("collapse");
+    question4();
+  };
+}
+
+function question4() {
+  questionContent.textContent =
+    "Answering four multiple-choice questions is a valid study substitute";
+  ans1.textContent = "True";
+  ans2.textContent = "False";
+  ans3.textContent = "I am having fun with this project";
+  ans4.textContent = "The War of 1812";
+
+  ans1.onclick = function() {
+    correctAnswer.classList.add("collapse");
+    wrongAnswer.classList.remove("collapse");
+    timeLeft = timeLeft - 10;
+  };
+  ans2.onclick = function() {
+    correctAnswer.classList.remove("collapse");
+    wrongAnswer.classList.add("collapse");
+    winner();
+  };
+  ans3.onclick = function() {
+    correctAnswer.classList.remove("collapse");
+    wrongAnswer.classList.add("collapse");
+    winner();
+  };
+  ans4.onclick = function() {
+    correctAnswer.classList.add("collapse");
     wrongAnswer.classList.remove("collapse");
     timeLeft = timeLeft - 10;
   };
