@@ -20,9 +20,9 @@
       <span id="timer" class="collapse">Time: </span>
     </nav>
     <div class="container">
-      <div id = "question-box"class="card mx-auto text-center collapse">
+      <div id="question-box" class="card mx-auto text-center collapse">
         <h5 id="questionTitle" class="card-header">Question:</h5>
-        <div id ="choices" class="card-body">
+        <div id="choices" class="card-body">
           <h5 id="questionContent" class="card-title">Question Content</h5>
           <button id="choice1" class="btn btn-primary">Choice 1</button>
           <button id="choice2" class="btn btn-primary">Choice 2</button>
@@ -33,15 +33,36 @@
           CORRECT!!!
         </div>
         <div id="wrongAns" class="card-footer text-muted collapse">
-            WRONG!!!
-          </div>
+          WRONG!!!
+        </div>
       </div>
-      <button id="startBtn" class="starter btn btn-success btn-lg mx-auto">START QUIZ</button>
+      <div id="welcome" class="card mx-auto text-center">
+        <h5 class="card-header">Javascript Quiz</h5>
+        <div id="welcome-body" class="card-body">
+          <h5 class="card-title">
+            Welcome to one of many Javascript Quizes. The rules are simple:</h5>
+            <ul class="text-left mb-10">
+                <li>Use the mouse to click the correct answer for each question</li>
+                <li>Answer as many questions correctly as you can before time runs out</li>
+                <li>Time left at completion = total score</li>
+                <li>10 seconds taken off the timer for every wrong answer</li>
+                <li>Try to beat your highscore on the journey to Javascript mastery!</li>
+            </ul>
+          <button id="startBtn" class="starter btn btn-success btn-lg mx-auto">
+            START QUIZ
+          </button>
+        </div>
+      </div>
     </div>
     <div id="game-over" class="card mx-auto text-center collapse">
-        <h5>TIMES UP!!!</h5>
-        <p>Thanks for playing :) Your score was a measely </p>
-        <button id="reset" class="btn btn-dark">Try Again</button>
+      <h5>TIMES UP!!!</h5>
+      <p>Thanks for playing :)</p>
+      <button id="reset" class="btn btn-dark">Try Again</button>
+    </div>
+    <div id="win-screen" class="card mx-auto text-center collapse">
+      <h5>YOU WIN!!!</h5>
+      <p>Did you learn anything? Enter your initials into the high score list</p>
+      <button id="reset" class="btn btn-success">Play Again</button>
     </div>
 
     <script
