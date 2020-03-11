@@ -1,10 +1,12 @@
-//Make highscore = time left
-//Questions stored in object, buttons in an array
-//Array of question objects
-//Run a formatter to make sure html is valid
-//Make sure README contains link to deployed application
+//To Do: Questions stored in object, buttons in an array (to decrease verbosity)
+//To Do: Array of question objects
+//To Do: Run a formatter to make sure html is valid
+//To Do: Make sure README contains link to deployed application
+//To Do: Create Buttons Inside Loop
+//To Do: get localstorage to work correctly
 
 //---GLOBAL VARIABLES---//
+//2020.03.11 NOTE: Avoid global variable declarations in future projects
 var startBtn = document.getElementById("startBtn");
 var questionBox = document.getElementById("question-box");
 var questionTitle = document.getElementById("questionTitle");
@@ -17,9 +19,14 @@ var ans3 = document.getElementById("choice3");
 var ans4 = document.getElementById("choice4");
 var timeCount = document.getElementById("timer");
 var gameOverScreen = document.getElementById("game-over");
-var resetGame = document.getElementById("reset");
+var resetGame1 = document.getElementById("reset1");//cant get by class name to work
+var resetGame2 = document.getElementById("reset2");
+var resetGame3 = document.getElementById("reset3");
 var welcomeScreen = document.getElementById("welcome");
 var winScreen = document.getElementById("win-screen");
+var totalScore = document.getElementById("total-score");
+var highScores = document.getElementById("high-scores");
+var highScoreScreen = document.getElementById("highscore-list");
 
 //---BUTTON FUNCTIONALITY---//
 startBtn.addEventListener("click", startGame);
@@ -27,16 +34,22 @@ ans1.addEventListener("click", function() {});
 ans2.addEventListener("click", function() {});
 ans3.addEventListener("click", function() {});
 ans4.addEventListener("click", function() {});
-resetGame.addEventListener("click", startGame);
+resetGame1.addEventListener("click", startGame);
+resetGame2.addEventListener("click", startGame);
+resetGame3.addEventListener("click", startGame);
+highScores.addEventListener("click", highscoreList);
 
 //---GAME FUNCTIONS---//
 function startGame() {
   welcomeScreen.classList.add("collapse");
   timeCount.classList.remove("collapse");
   gameOverScreen.classList.add("collapse");
+  winScreen.classList.add("collapse");
+  highScoreScreen.classList.add("collapse")
 
-  window.timeLeft = 180;
+  window.timeLeft = 180; //I get the feeling that declaring a global variable inside of a function is really bad
   window.timeInterval = setInterval(function() {
+    //I will write code in a simpler/better way next time once I understand better
     timeCount.textContent = "Time: " + timeLeft + " seconds remaining";
     timeLeft--;
 
@@ -58,6 +71,19 @@ function winner() {
   winScreen.classList.remove("collapse");
   questionBox.classList.add("collapse");
   clearInterval(timeInterval);
+  totalScore.textContent = timeLeft + 1
+}
+
+function highscoreList() {
+  winScreen.classList.add("collapse"); // There has to be a better way to do all this hiding/showing (separate html pages?)
+  questionBox.classList.add("collapse");
+  gameOverScreen.classList.add("collapse");
+  welcomeScreen.classList.add("collapse");
+  highScoreScreen.classList.remove("collapse")
+
+  var initials = document.getElementById("inlineFormInput").value
+  localStorage.setItem(initials)
+  localStorage.setItem(totalScore)
 }
 
 //---QUESTIONS---//
@@ -160,7 +186,7 @@ function question4() {
     "Answering four multiple-choice questions is a valid study substitute";
   ans1.textContent = "True";
   ans2.textContent = "False";
-  ans3.textContent = "I am having fun with this project";
+  ans3.textContent = "Not with these types of questions";
   ans4.textContent = "The War of 1812";
 
   ans1.onclick = function() {

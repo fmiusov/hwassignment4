@@ -16,7 +16,7 @@
   </head>
   <body>
     <nav class="navbar navbar-dark">
-      <a class="navbar-brand" href="#">View Highscores</a>
+      <a id="high-scores" class="navbar-brand">View Highscores</a>
       <span id="timer" class="collapse">Time: </span>
     </nav>
     <div class="container">
@@ -57,12 +57,39 @@
     <div id="game-over" class="card mx-auto text-center collapse">
       <h5>TIMES UP!!!</h5>
       <p>Thanks for playing :)</p>
-      <button id="reset" class="btn btn-dark">Try Again</button>
+      <button id = "reset1" class="btn btn-dark reset">Try Again</button>
     </div>
     <div id="win-screen" class="card mx-auto text-center collapse">
       <h5>YOU WIN!!!</h5>
-      <p>Did you learn anything? Enter your initials into the high score list</p>
-      <button id="reset" class="btn btn-success">Play Again</button>
+      <p>Did you learn anything? Your score is <span id=total-score></span>. Enter your initials into the high score list</p>
+      <button id="reset2" class="btn btn-success reset">Play Again</button>
+    </div>
+    <div id="highscore-list" class="card mx-auto text-center collapse">
+      <h5>High Scores</h5>
+      <ol>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+        <li>_ _ _</li>
+      </ol>
+      <form>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInput">Name</label>
+            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Initials">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          </div>
+        </div>
+      </form>
+      <button id="reset3" class="btn btn-success reset">Play Again</button>
     </div>
 
     <script
